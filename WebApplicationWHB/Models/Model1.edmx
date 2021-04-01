@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AccountsDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccountsDb.dbo.ankbus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ankbus">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PassengerName" />
+            <PropertyRef Name="PassengerEmail" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PassengerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassengerEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="koltukid" Type="int" />
+          <Property Name="price" Type="int" />
+        </EntityType>
+        <EntityType Name="busDate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="time" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="busTime">
+          <Key>
+            <PropertyRef Name="travelTime" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="travelTime" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eskbus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PassengerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassengerEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="selected" Type="bit" Nullable="false" />
+          <Property Name="koltukid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="izmbus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PassengerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassengerEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="selected" Type="bit" Nullable="false" />
+          <Property Name="koltukid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lastCity">
+          <Key>
+            <PropertyRef Name="idCity" />
+          </Key>
+          <Property Name="idCity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cityName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrdersTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="binis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="inis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="koltukid" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="soldticket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccountsDb.dbo.startCity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="startCity">
+          <Key>
+            <PropertyRef Name="idcity" />
+            <PropertyRef Name="cityName" />
+          </Key>
+          <Property Name="idcity" Type="int" Nullable="false" />
+          <Property Name="cityName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="AccountsDbModelStoreContainer">
+          <EntitySet Name="busDate" EntityType="Self.busDate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="busTime" EntityType="Self.busTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="eskbus" EntityType="Self.eskbus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="izmbus" EntityType="Self.izmbus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lastCity" EntityType="Self.lastCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersTable" EntityType="Self.OrdersTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="soldticket" EntityType="Self.soldticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ankbus" EntityType="Self.ankbus" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ankbus].[Id] AS [Id], 
+[ankbus].[PassengerName] AS [PassengerName], 
+[ankbus].[PassengerEmail] AS [PassengerEmail], 
+[ankbus].[koltukid] AS [koltukid], 
+[ankbus].[price] AS [price]
+FROM [dbo].[ankbus] AS [ankbus]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="startCity" EntityType="Self.startCity" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[startCity].[idcity] AS [idcity], 
+[startCity].[cityName] AS [cityName]
+FROM [dbo].[startCity] AS [startCity]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AccountsDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="busDate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="busTime">
+          <Key>
+            <PropertyRef Name="travelTime" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="travelTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eskbu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PassengerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassengerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="selected" Type="Boolean" Nullable="false" />
+          <Property Name="koltukid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="izmbu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PassengerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassengerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="selected" Type="Boolean" Nullable="false" />
+          <Property Name="koltukid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lastCity">
+          <Key>
+            <PropertyRef Name="idCity" />
+          </Key>
+          <Property Name="idCity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OrdersTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="binis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="inis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="koltukid" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="soldticket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ankbu">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PassengerName" />
+            <PropertyRef Name="PassengerEmail" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PassengerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassengerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="koltukid" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+        </EntityType>
+        <EntityType Name="startCity">
+          <Key>
+            <PropertyRef Name="idcity" />
+            <PropertyRef Name="cityName" />
+          </Key>
+          <Property Name="idcity" Type="Int32" Nullable="false" />
+          <Property Name="cityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AccountsDbEntities10" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="busDates" EntityType="Self.busDate" />
+          <EntitySet Name="busTimes" EntityType="Self.busTime" />
+          <EntitySet Name="eskbus" EntityType="Self.eskbu" />
+          <EntitySet Name="izmbus" EntityType="Self.izmbu" />
+          <EntitySet Name="lastCities" EntityType="Self.lastCity" />
+          <EntitySet Name="Managers" EntityType="Self.Manager" />
+          <EntitySet Name="OrdersTables" EntityType="Self.OrdersTable" />
+          <EntitySet Name="soldtickets" EntityType="Self.soldticket" />
+          <EntitySet Name="Tables" EntityType="Self.Table" />
+          <EntitySet Name="ankbus" EntityType="Self.ankbu" />
+          <EntitySet Name="startCities" EntityType="Self.startCity" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AccountsDbModelStoreContainer" CdmEntityContainer="AccountsDbEntities10">
+          <EntitySetMapping Name="busDates">
+            <EntityTypeMapping TypeName="AccountsDbModel.busDate">
+              <MappingFragment StoreEntitySet="busDate">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="busTimes">
+            <EntityTypeMapping TypeName="AccountsDbModel.busTime">
+              <MappingFragment StoreEntitySet="busTime">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="travelTime" ColumnName="travelTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eskbus">
+            <EntityTypeMapping TypeName="AccountsDbModel.eskbu">
+              <MappingFragment StoreEntitySet="eskbus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+                <ScalarProperty Name="PassengerEmail" ColumnName="PassengerEmail" />
+                <ScalarProperty Name="selected" ColumnName="selected" />
+                <ScalarProperty Name="koltukid" ColumnName="koltukid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="izmbus">
+            <EntityTypeMapping TypeName="AccountsDbModel.izmbu">
+              <MappingFragment StoreEntitySet="izmbus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+                <ScalarProperty Name="PassengerEmail" ColumnName="PassengerEmail" />
+                <ScalarProperty Name="selected" ColumnName="selected" />
+                <ScalarProperty Name="koltukid" ColumnName="koltukid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lastCities">
+            <EntityTypeMapping TypeName="AccountsDbModel.lastCity">
+              <MappingFragment StoreEntitySet="lastCity">
+                <ScalarProperty Name="idCity" ColumnName="idCity" />
+                <ScalarProperty Name="cityName" ColumnName="cityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Managers">
+            <EntityTypeMapping TypeName="AccountsDbModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersTables">
+            <EntityTypeMapping TypeName="AccountsDbModel.OrdersTable">
+              <MappingFragment StoreEntitySet="OrdersTable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="binis" ColumnName="binis" />
+                <ScalarProperty Name="inis" ColumnName="inis" />
+                <ScalarProperty Name="koltukid" ColumnName="koltukid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="soldtickets">
+            <EntityTypeMapping TypeName="AccountsDbModel.soldticket">
+              <MappingFragment StoreEntitySet="soldticket">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="AccountsDbModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ankbus">
+            <EntityTypeMapping TypeName="AccountsDbModel.ankbu">
+              <MappingFragment StoreEntitySet="ankbus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+                <ScalarProperty Name="PassengerEmail" ColumnName="PassengerEmail" />
+                <ScalarProperty Name="koltukid" ColumnName="koltukid" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="startCities">
+            <EntityTypeMapping TypeName="AccountsDbModel.startCity">
+              <MappingFragment StoreEntitySet="startCity">
+                <ScalarProperty Name="idcity" ColumnName="idcity" />
+                <ScalarProperty Name="cityName" ColumnName="cityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

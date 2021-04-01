@@ -1,0 +1,49 @@
+﻿@model List <WebApplicationWHB.Models.OrdersTable>
+@{
+    Layout = null;
+    if (Session["userName"] == null)
+    {
+        Response.Redirect("~/Content/Manager");      //----------Giriş yapılmadıysa üye ol a atacak
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ManagerIndex</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div>
+        <h2 style="text-align:center">Hoşgeldiniz Sn.  <h1 style="text-align:center"> @ViewBag.Name</h1></h2><a role="button"class="bg-info" href="@Url.Action("LogOut","Home")">Çıkış Yap</a>
+
+        <table class="table table-striped">
+            <thead>
+                
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">BİNİLEN DURAK</th>
+                    <th scope="col">İNİLECEK DURAK</th>
+                    <th scope="col">İSİM</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">TARİH</th>
+                </tr>
+                    @foreach (var item in Model.ToList())
+                    {
+                                <tr>
+                                    <th scope="col">@item.id</th>
+                                    <td scope="col">@item.binis</td>
+                                    <td scope="col">@item.inis</td>
+                                    <td scope="col">@item.name</td>
+                                    <td scope="col">@item.email</td>
+                                    <td scope="col">@item.date</td>
+                                </tr>
+                    }
+                
+            </thead>
+    </table>
+</div>
+</body>
+</html>

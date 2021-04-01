@@ -1,0 +1,83 @@
+﻿@model WebApplicationWHB.Models.ParentModel
+
+@{
+   
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Home/Registerpage");      //----------Giriş yapılmadıysa üye ol a atacak
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h1>Hoşgeldiniz Sn.</h1><button class="btn-danger" style="position:center"><h5>@Session["userName"]</h5></button>
+
+        <a href="@Url.Action("LogOut","Home")">Çıkış Yap</a>
+
+        <br />
+        <div class="formdiv" style="position:static;">
+            @using (Html.BeginForm("CreateTicket", "Content", FormMethod.Post))
+            {<div class="formdivim" style="margin-left:40%">
+                    <div class="form-group">
+                        @Html.Label("Gidiş", new { @class = "form-control" })
+                        @(Html.DropDownListFor(z => z.startCity.idcity, (List<SelectListItem>)ViewBag.fssc, new { @class = "form-control", @style = "margin-left:35%" }))
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Varış", new { @class = "form-control" })
+
+                        @(Html.DropDownListFor(x => x.lastCity.idCity, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control ", @style = "margin-left:35%" }))
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Tarih", new { @class = "form-control" })
+                        @(Html.DropDownListFor(z => z.busDate.id, (List<SelectListItem>)ViewBag.trh, new { @class = "form-control", @style = "margin-left:35%" }))
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Saat", new { @class = "form-control" })
+                        @(Html.DropDownListFor(z => z.busTime.id, (List<SelectListItem>)ViewBag.time, new { @class = "form-control", @style = "margin-left:35%" }))
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("İsim", new { @class = "form-control" })
+                        @Html.EditorFor(model => model.Ankbu.PassengerName, new { htmlAttributes = new { @name = "name", @placeholder = "İsminiz", @class = "form-control", @style = "margin-left:35%" } })
+                        @Html.ValidationMessageFor(model => model.Ankbu.PassengerName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Mail", new { @class = "form-control" })
+                        @Html.EditorFor(model => model.Ankbu.PassengerEmail, new { htmlAttributes = new { @name = "name", @id = "mail", @placeholder = "E-mailiniz", @class = "form-control", @style = "margin-left:35%" } })
+                        @Html.ValidationMessageFor(model => model.Ankbu.PassengerEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                // @(Html.DropDownListFor(z => z.OrderModel.orders, (List<SelectListItem>)ViewBag.koltuklist, new { @class = "form-control" }))        ------------  DB DEN GELEN KOLTUK LİSTESİ BU DROPDOWN A BASILIYOR
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10" style="width:150px;float:right;margin-right:20%;margin-top:3%;margin-bottom:2%">
+                        <input type="submit" value="Bilet Al" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            }
+            @*</div><div class="bus">
+                @using (Html.BeginForm("CreateTicket", "Content", FormMethod.Post))
+                {
+                    for (int i = 0; i < Model.ordersTable.Count; i++)
+                    {
+                        @Html.DisplayFor(m => m.ordersTable[i].name)
+                        @Html.CheckBoxFor(m => m.ordersTable[i].selected)   -----------   CHECKBOX İLE ÇALIŞILIRKEN KULLANILACAK
+                    }
+                }
+            </div>*@
+
+        </div>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AccountsDbModelStoreContainer" CdmEntityContainer="AccountsDbEntities10">
+    <EntitySetMapping Name="busDates">
+      <EntityTypeMapping TypeName="AccountsDbModel.busDate">
+        <MappingFragment StoreEntitySet="busDate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="busTimes">
+      <EntityTypeMapping TypeName="AccountsDbModel.busTime">
+        <MappingFragment StoreEntitySet="busTime">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="travelTime" ColumnName="travelTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eskbus">
+      <EntityTypeMapping TypeName="AccountsDbModel.eskbu">
+        <MappingFragment StoreEntitySet="eskbus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+          <ScalarProperty Name="PassengerEmail" ColumnName="PassengerEmail" />
+          <ScalarProperty Name="selected" ColumnName="selected" />
+          <ScalarProperty Name="koltukid" ColumnName="koltukid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="izmbus">
+      <EntityTypeMapping TypeName="AccountsDbModel.izmbu">
+        <MappingFragment StoreEntitySet="izmbus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+          <ScalarProperty Name="PassengerEmail" ColumnName="PassengerEmail" />
+          <ScalarProperty Name="selected" ColumnName="selected" />
+          <ScalarProperty Name="koltukid" ColumnName="koltukid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lastCities">
+      <EntityTypeMapping TypeName="AccountsDbModel.lastCity">
+        <MappingFragment StoreEntitySet="lastCity">
+          <ScalarProperty Name="idCity" ColumnName="idCity" />
+          <ScalarProperty Name="cityName" ColumnName="cityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Managers">
+      <EntityTypeMapping TypeName="AccountsDbModel.Manager">
+        <MappingFragment StoreEntitySet="Manager">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersTables">
+      <EntityTypeMapping TypeName="AccountsDbModel.OrdersTable">
+        <MappingFragment StoreEntitySet="OrdersTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="binis" ColumnName="binis" />
+          <ScalarProperty Name="inis" ColumnName="inis" />
+          <ScalarProperty Name="koltukid" ColumnName="koltukid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="soldtickets">
+      <EntityTypeMapping TypeName="AccountsDbModel.soldticket">
+        <MappingFragment StoreEntitySet="soldticket">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="AccountsDbModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ankbus">
+      <EntityTypeMapping TypeName="AccountsDbModel.ankbu">
+        <MappingFragment StoreEntitySet="ankbus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+          <ScalarProperty Name="PassengerEmail" ColumnName="PassengerEmail" />
+          <ScalarProperty Name="koltukid" ColumnName="koltukid" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="startCities">
+      <EntityTypeMapping TypeName="AccountsDbModel.startCity">
+        <MappingFragment StoreEntitySet="startCity">
+          <ScalarProperty Name="idcity" ColumnName="idcity" />
+          <ScalarProperty Name="cityName" ColumnName="cityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

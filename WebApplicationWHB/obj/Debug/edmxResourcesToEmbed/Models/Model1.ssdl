@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AccountsDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AccountsDb.dbo.ankbus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ankbus">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="PassengerName" />
+      <PropertyRef Name="PassengerEmail" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PassengerName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PassengerEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="koltukid" Type="int" />
+    <Property Name="price" Type="int" />
+  </EntityType>
+  <EntityType Name="busDate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="time" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="busTime">
+    <Key>
+      <PropertyRef Name="travelTime" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="travelTime" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="eskbus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PassengerName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PassengerEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="selected" Type="bit" Nullable="false" />
+    <Property Name="koltukid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="izmbus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PassengerName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PassengerEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="selected" Type="bit" Nullable="false" />
+    <Property Name="koltukid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lastCity">
+    <Key>
+      <PropertyRef Name="idCity" />
+    </Key>
+    <Property Name="idCity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cityName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrdersTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="binis" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="inis" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="koltukid" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="date" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="soldticket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AccountsDb.dbo.startCity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="startCity">
+    <Key>
+      <PropertyRef Name="idcity" />
+      <PropertyRef Name="cityName" />
+    </Key>
+    <Property Name="idcity" Type="int" Nullable="false" />
+    <Property Name="cityName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="AccountsDbModelStoreContainer">
+    <EntitySet Name="busDate" EntityType="Self.busDate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="busTime" EntityType="Self.busTime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eskbus" EntityType="Self.eskbus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="izmbus" EntityType="Self.izmbus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lastCity" EntityType="Self.lastCity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersTable" EntityType="Self.OrdersTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="soldticket" EntityType="Self.soldticket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ankbus" EntityType="Self.ankbus" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ankbus].[Id] AS [Id], 
+[ankbus].[PassengerName] AS [PassengerName], 
+[ankbus].[PassengerEmail] AS [PassengerEmail], 
+[ankbus].[koltukid] AS [koltukid], 
+[ankbus].[price] AS [price]
+FROM [dbo].[ankbus] AS [ankbus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="startCity" EntityType="Self.startCity" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[startCity].[idcity] AS [idcity], 
+[startCity].[cityName] AS [cityName]
+FROM [dbo].[startCity] AS [startCity]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,57 @@
+﻿@model WebApplicationWHB.Models.Table
+
+
+@{
+    ViewBag.Title = "Kullanıcı Kaydı";
+}
+
+
+
+
+<section class="signup">
+    <div class="container">
+        <div class="signup-content">
+            <div class="signup-form">
+                <h2 class="form-title">BİZE KATILIN</h2>
+                @using (Html.BeginForm("Registerpage", "Home", FormMethod.Post))
+                {
+
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @name = "name", @id = "name", @placeholder = "Your Name" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @name = "email", @id = "email", @placeholder = "Your Email" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @name = "agree-term", @id = "agree-term", @class = "agree-term" } })
+                    <h2>   </h2>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group form-button">
+                        <input type="submit" name="signup" id="signup" class="form-submit" value="Kaydol" />
+
+                    </div>
+                }
+
+            </div>
+            <div class="signup-image">
+                <figure>
+
+                    <img src="~/Content/images/signup-image.jpg" />
+                </figure>
+                <a href="@Url.Action("IndexLogin")" class="signup-image-link">Ben Zaten Üye Oldum kii</a><br />
+                <a href="@Url.Action("Index")" class="signup-image-link">Geri Dön</a>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/js/main.js"></script>
+<script src="~/Scripts/js/jquery.min.js"></script>
+<script src="~/Scripts/modernizr-2.8.3.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
